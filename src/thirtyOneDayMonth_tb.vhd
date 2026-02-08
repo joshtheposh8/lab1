@@ -80,7 +80,7 @@ begin
 			i_C => w_sw(2),
 			i_B => w_sw(1),
 			i_A => w_sw(0),
-	    		o_Y => w_Y
+	    	o_Y => w_Y
         );
 	-----------------------------------------------------
 
@@ -94,7 +94,54 @@ begin
             assert w_Y = '0' report "error on x0" severity failure;
         w_sw <= x"1"; wait for 10 ns;
             assert w_Y = '1' report "error on Jan" severity failure;   
+        
+        w_sw <= x"2"; wait for 10 ns;
+        assert w_Y = '0' report "error on Feb (x2)" severity failure;
 
+        w_sw <= x"3"; wait for 10 ns;
+        assert w_Y = '1' report "error on Mar (x3)" severity failure;
+
+  
+        w_sw <= x"4"; wait for 10 ns;
+        assert w_Y = '0' report "error on Apr (x4)" severity failure;
+
+ 
+        w_sw <= x"5"; wait for 10 ns;
+        assert w_Y = '1' report "error on May (x5)" severity failure;
+    
+
+        w_sw <= x"6"; wait for 10 ns;
+        assert w_Y = '0' report "error on Jun (x6)" severity failure;
+
+        w_sw <= x"7"; wait for 10 ns;
+        assert w_Y = '1' report "error on Jul (x7)" severity failure;
+
+        w_sw <= x"8"; wait for 10 ns;
+        assert w_Y = '1' report "error on Aug (x8)" severity failure;
+
+        w_sw <= x"9"; wait for 10 ns;
+        assert w_Y = '0' report "error on Sep (x9)" severity failure;
+
+ 
+        w_sw <= x"A"; wait for 10 ns;
+        assert w_Y = '1' report "error on Oct (xA)" severity failure;
+
+  
+        w_sw <= x"B"; wait for 10 ns;
+        assert w_Y = '0' report "error on Nov (xB)" severity failure;
+
+        w_sw <= x"C"; wait for 10 ns;
+        assert w_Y = '1' report "error on Dec (xC)" severity failure;
+
+  -- D/E/F invalid -> 0
+  w_sw <= x"D"; wait for 10 ns;
+  assert w_Y = '0' report "error on xD" severity failure;
+
+  w_sw <= x"E"; wait for 10 ns;
+  assert w_Y = '0' report "error on xE" severity failure;
+
+  w_sw <= x"F"; wait for 10 ns;
+  assert w_Y = '0' report "error on xF" severity failure;
 		wait; -- wait forever
 	end process;	
 	-----------------------------------------------------	
