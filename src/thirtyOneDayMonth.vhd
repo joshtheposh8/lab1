@@ -81,14 +81,16 @@ begin
 	
 	--enter your logic here to implement the mux.  See VHDL reference sheet for MUX syntax.
 	with w_sel select
-    o_Y <= i_D      when "000",
-           i_D      when "001",
-           i_D      when "010",
-           i_D      when "011",
-           not i_D  when "100",
-           not i_D  when "101",
-           not i_D  when "110",
-           not i_D  when "111";
+     o_Y <= i_D      when "000",
+         i_D      when "001",
+         i_D      when "010",
+         i_D      when "011",
+         not i_D  when "100",
+         not i_D  when "101",
+         not i_D  when "110",
+         not i_D  when "111",
+         '0'      when others;
+
           
 	---------------------------------------------------------------	
 end thirtyOneDayMonth_arch;
